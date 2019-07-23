@@ -2,7 +2,6 @@ package io
 
 import scala.annotation.compileTimeOnly
 import scala.reflect.macros.blackbox
-import scala.language.experimental.macros
 
 object functionmeta {
 

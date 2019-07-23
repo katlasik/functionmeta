@@ -1,11 +1,22 @@
-ThisBuild / version := "0.1.0-SNAPSHOT"
-ThisBuild / organization := "katlasik"
-ThisBuild / crossScalaVersions := Seq("2.12.7", "2.12.8", "2.13.0")
+val scalaVersions = Seq("2.12.8", "2.13.0")
+
+ThisBuild / version := "0.2.0"
+ThisBuild / organization := "com.github.katlasik"
+ThisBuild / name := "functionmeta"
+ThisBuild / crossScalaVersions := scalaVersions
+ThisBuild / scalaVersion := "2.13.0"
+ThisBuild / sonatypeProfileName := "katlasik"
+ThisBuild / publishMavenStyle := true
 
 lazy val root = (project in file("."))
   .settings(
     name := "functionmeta",
-    organization := "katlasik",
+    homepage := Some(url("https://github.com/katlasik/functionmeta")),
+    scalaVersion := "2.13.0",
+    crossScalaVersions := scalaVersions,
+    scmInfo := Some(
+      ScmInfo(url("https://github.com/katlasik/functionmeta"), "git@github.com:katlasik/functionmeta.git")
+    ),
     libraryDependencies ++= Seq(
       "org.scalameta" %% "scalameta" % "4.2.0",
       "org.scala-lang" % "scala-reflect" % scalaVersion.value,
@@ -17,7 +28,7 @@ lazy val root = (project in file("."))
 Compile / scalacOptions ++= {
   CrossVersion.partialVersion(scalaVersion.value) match {
     case Some((2, n)) if n >= 13 => "-Ymacro-annotations" :: Nil
-    case _                       => Nil
+    case _ => Nil
   }
 }
 
@@ -30,6 +41,13 @@ libraryDependencies ++= {
       ) :: Nil
   }
 }
+
+publishTo := Some(
+  if (isSnapshot.value)
+    Opts.resolver.sonatypeSnapshots
+  else
+    Opts.resolver.sonatypeStaging
+)
 
 scalacOptions ++= Seq(
   "-deprecation",
