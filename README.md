@@ -10,7 +10,7 @@ to retrieve metadata of function.
 To use *functionmeta* in your project add dependecy to your **build.sbt**:
 
 ```
-libraryDependencies += "com.github.katlasik" %% "katlasik" % "0.2.0" % "provided"
+libraryDependencies += "com.github.katlasik" %% "katlasik" % "0.2.1" % "provided"
 ```
 
 ### Examples
