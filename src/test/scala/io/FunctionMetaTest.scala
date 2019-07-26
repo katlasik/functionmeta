@@ -77,7 +77,7 @@ class FunctionMetaTest extends WordSpec with Matchers {
   }
 
   "functionName" should {
-    "return name of function" in {
+    "return name of the function" in {
 
       case class Foo(bar: Double)
 

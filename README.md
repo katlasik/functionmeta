@@ -3,14 +3,14 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta)
 
 *FunctionMeta* is library providing useful macros that can be used
-to retrieve metadata of function.
+to retrieve metadata of the function.
 
 ### Installation
 
 To use *functionmeta* in your project add dependecy to your **build.sbt**:
 
 ```
-libraryDependencies += "com.github.katlasik" %% "katlasik" % "0.2.1" % "provided"
+libraryDependencies += "com.github.katlasik" %% "katlasik" % "0.2.2" % "provided"
 ```
 
 ### Examples
@@ -24,13 +24,13 @@ For example:
 import io.functionmeta._
 
 def func() {
-   println(s"Name of function is $functionName")
+   println(s"Name of the function is $functionName")
 }
 ```
 
 Executing function `func` will print:
 
-> Name of function is func
+> Name of the function is func
 
 #### arguments
 

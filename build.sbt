@@ -1,11 +1,10 @@
 val scalaVersions = Seq("2.12.8", "2.13.0")
 
-ThisBuild / version := "0.2.1"
+ThisBuild / version := "0.2.2"
 ThisBuild / organization := "com.github.katlasik"
 ThisBuild / name := "functionmeta"
 ThisBuild / crossScalaVersions := scalaVersions
 ThisBuild / scalaVersion := "2.13.0"
-ThisBuild / sonatypeProfileName := "katlasik"
 ThisBuild / publishMavenStyle := true
 
 lazy val root = (project in file("."))
@@ -22,6 +21,14 @@ lazy val root = (project in file("."))
       "org.scala-lang" % "scala-reflect" % scalaVersion.value,
       "com.chuusai" %% "shapeless" % "2.3.3" % "test",
       "org.scalatest" %% "scalatest" % "3.0.8" % "test"
+    ),
+    developers := List(
+      Developer(
+        id="katlasik",
+        name="Krzysztof Atlasik",
+        email="krzysztof.atlasik@pm.me",
+        url("https://github.com/katlasik/functionmeta")
+      )
     )
   )
 
