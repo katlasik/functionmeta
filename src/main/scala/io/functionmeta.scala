@@ -14,7 +14,7 @@ object functionmeta {
     *import io.functionmeta._
     *
     *def func() {
-    *  println(s"Name of the function is ${functionName}")
+    *  println("Name of the function is " + functionName)
     *}
     *}}}
     *</pre>

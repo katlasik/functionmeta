@@ -1,6 +1,6 @@
 ## FunctionMeta
 [![Build Status](https://travis-ci.com/katlasik/functionmeta.svg?branch=master)](https://travis-ci.com/katlasik/functionmeta)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta_2.13/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta)
 
 *FunctionMeta* is library providing useful macros that can be used
 to retrieve metadata of the function.
@@ -10,7 +10,7 @@ to retrieve metadata of the function.
 To use *functionmeta* in your project add dependecy to your **build.sbt**:
 
 ```
-libraryDependencies += "com.github.katlasik" %% "katlasik" % "0.2.2" % "provided"
+libraryDependencies += "com.github.katlasik" %% "functionmeta" % "0.2.3" % "provided"
 ```
 
 ### Examples
