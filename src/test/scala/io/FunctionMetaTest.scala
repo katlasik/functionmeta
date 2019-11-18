@@ -88,6 +88,15 @@ class FunctionMetaTest extends WordSpec with Matchers {
 
       method(List("hello", "yesterday"), 1100, Foo(12.3))
     }
+    "return name of the function when assigned to a val" in {
+      def method(): Unit = {
+        val funcName = functionName
+
+        funcName shouldBe "method"
+        ()
+      }
+      method()
+    }
     "not compile outside function" in {
 
       illTyped(

@@ -66,13 +66,21 @@ object functionmeta {
 
     @compileTimeOnly("Enable macro paradise plugin to expand macro annotations or add scalac flag -Ymacro-annotations.")
     def functionNameImpl(c: blackbox.Context): c.Expr[String] = {
-      val owner = c.internal.enclosingOwner
 
-      if (owner.isMethod) {
-        c.Expr(c.parse(s""""${owner.name.toString}""""))
-      } else {
-        c.abort(c.enclosingPosition, "functionName can be used only inside function.")
+      @scala.annotation.tailrec
+      def findOwningMethod(sym: c.Symbol): Option[String] = {
+        if (sym == c.universe.NoSymbol) {
+          None
+        } else if (sym.isMethod) {
+          Option(sym.name.toString)
+        } else {
+          findOwningMethod(sym.owner)
+        }
       }
+
+      findOwningMethod(c.internal.enclosingOwner)
+        .map(methodName => c.Expr(c.parse(s""""$methodName"""")))
+          .getOrElse(c.abort(c.enclosingPosition, "functionName can be used only inside function."))
     }
 
     @compileTimeOnly("Enable macro paradise plugin to expand macro annotations or add scalac flag -Ymacro-annotations.")
