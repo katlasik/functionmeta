@@ -1,6 +1,7 @@
 ## FunctionMeta
 [![Build Status](https://travis-ci.com/katlasik/functionmeta.svg?branch=master)](https://travis-ci.com/katlasik/functionmeta)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta_2.13/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.katlasik/functionmeta_2.13)
+[![javadoc](https://javadoc.io/badge2/com.github.katlasik/functionmeta_2.13/javadoc.svg)](https://javadoc.io/doc/com.github.katlasik/functionmeta_2.13) 
 
 *FunctionMeta* is library providing useful macros that can be used
 to retrieve metadata of the function.
