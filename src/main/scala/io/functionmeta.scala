@@ -7,16 +7,16 @@ object functionmeta {
 
   /**
   *
-    * Returns name of the host function where this macro is invoked.
+    * Returns name of the host function.
     * For example:
     *<pre>
-    *{{{
+    *{@code
     *import io.functionmeta._
     *
     *def func() {
     *  println("Name of the function is " + functionName)
     *}
-    *}}}
+    *}
     *</pre>
     *Calling method <i>func</i> will print <i>Name of the function is func</i>.
     *
@@ -26,16 +26,16 @@ object functionmeta {
 
   /**
     *
-    * Returns all values of arguments of host functions as <i>List[Any]</i>.
+    * Returns all values of arguments of host function as <i>List[Any]</i>.
     * For example:
     *<pre>
-    *{{{
+    *{@code
     *import io.functionmeta._
     *
     *def func(i: String, j: Int) {
     *  println(arguments)
     *}
-    *}}}
+    *}
     *</pre>
     *Calling method <i>func("1", 2)</i> will print <i>List("1",1)</i>.
     *
@@ -48,13 +48,13 @@ object functionmeta {
     * Returns map of names and values of arguments of host function as <i>Map[String, Any]</i>.
     * For example:
     *<pre>
-    *{{{
+    *{@code
     *import io.functionmeta._
     *
     *def func(i: String, j: Int) {
     *  println(arguments)
     *}
-    *}}}
+    *}
     *</pre>
     *Calling method <i>func("1", 2)</i> will print <i>Map(i -> "1", j -> 2)</i>.
     *
