@@ -2,8 +2,10 @@ package io
 
 import org.scalatest._
 import shapeless.test.illTyped
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class FunctionMetaTest extends WordSpec with Matchers {
+class FunctionMetaTest extends AnyWordSpec with Matchers {
 
   import io.functionmeta._
 
