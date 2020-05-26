@@ -1,6 +1,6 @@
 val scalaVersions = Seq("2.12.8", "2.13.0")
 
-ThisBuild / version := "0.2.4"
+ThisBuild / version := "0.3.0"
 ThisBuild / organization := "com.github.katlasik"
 ThisBuild / name := "functionmeta"
 ThisBuild / crossScalaVersions := scalaVersions
