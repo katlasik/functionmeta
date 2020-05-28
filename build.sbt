@@ -14,6 +14,7 @@ lazy val root = (project in file("."))
     crossScalaVersions := scalaVersions,
     sonatypeProfileName := "com.github.katlasik",
     publishMavenStyle := true,
+    publishConfiguration := publishConfiguration.value.withOverwrite(true),
     licenses := Seq("ISC" -> url("https://opensource.org/licenses/ISC")),
     scmInfo := Some(
       ScmInfo(url("https://github.com/katlasik/functionmeta"), "git@github.com:katlasik/functionmeta.git")
