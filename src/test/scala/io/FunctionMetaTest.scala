@@ -20,6 +20,19 @@ class FunctionMetaTest extends WordSpec with Matchers {
       method(List("hello", "yesterday"), 1100, Foo(12.3))
     }
 
+    "return list of arguments when assigned to val" in {
+
+      case class Foo(bar: Double)
+
+      def method(a: List[String], b: Int, c: Foo): Unit = {
+        val args = arguments
+        args shouldBe List(List("hello", "yesterday"), 1100, Foo(12.3))
+        ()
+      }
+
+      method(List("hello", "yesterday"), 1100, Foo(12.3))
+    }
+
     "return list of vararg arguments" in {
 
       case class Foo(bar: Double)
@@ -31,6 +44,19 @@ class FunctionMetaTest extends WordSpec with Matchers {
 
       method("hello", "yesterday")
     }
+    "return list of vararg arguments when assigned to val" in {
+
+      case class Foo(bar: Double)
+
+      def method(a: String*): Unit = {
+        val args = arguments
+        args shouldBe List(List("hello", "yesterday"))
+        ()
+      }
+
+      method("hello", "yesterday")
+    }
+
 
     "not compile outside function" in {
 
@@ -55,6 +81,18 @@ class FunctionMetaTest extends WordSpec with Matchers {
 
       def method(a: List[String], b: Int, c: Foo): Unit = {
         argumentsMap shouldBe Map("a" -> List("hello", "yesterday"), "b" -> 1100, "c" -> Foo(12.3))
+        ()
+      }
+
+      method(List("hello", "yesterday"), 1100, Foo(12.3))
+    }
+    "return map of argument names and values when assigned to val" in {
+
+      case class Foo(bar: Double)
+
+      def method(a: List[String], b: Int, c: Foo): Unit = {
+        val am = argumentsMap
+        am shouldBe Map("a" -> List("hello", "yesterday"), "b" -> 1100, "c" -> Foo(12.3))
         ()
       }
 
