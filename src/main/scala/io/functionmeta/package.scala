@@ -1,9 +1,9 @@
 package io
 
-import scala.annotation.compileTimeOnly
+import scala.annotation.{compileTimeOnly, tailrec}
 import scala.reflect.macros.blackbox
 
-object functionmeta {
+package object functionmeta {
 
   /**
     *
@@ -66,7 +66,7 @@ object functionmeta {
 
     def findOwningMethod(c: blackbox.Context)(sym: c.Symbol): Option[c.Symbol] = {
 
-      @scala.annotation.tailrec
+      @tailrec
       def go(sym: c.Symbol): Option[c.Symbol] = {
         if (sym == c.universe.NoSymbol) {
           None
