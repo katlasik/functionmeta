@@ -25,7 +25,6 @@ package object functionmeta {
   def functionName: String = macro Impls.functionNameImpl
 
   /**
-    *
     * Returns all values of arguments of host function as <i>List[Any]</i>.
     * For example:
     *<pre>
@@ -93,7 +92,10 @@ package object functionmeta {
     def argumentsImpl(c: blackbox.Context): c.Expr[List[Any]] = {
 
       findOwningMethod(c)(c.internal.enclosingOwner)
-        .map(owner => c.Expr(c.parse(s"List(${owner.asMethod.paramLists.head.map(_.name).mkString(", ")})")))
+        .map(owner => {
+          val argsStr = owner.asMethod.paramLists.headOption.getOrElse(Nil).map(_.name).mkString(", ")
+          c.Expr(c.parse(s"List($argsStr)"))
+        })
         .getOrElse(c.abort(c.enclosingPosition, "arguments can be used only inside function."))
 
     }
@@ -102,11 +104,14 @@ package object functionmeta {
     def argumentsMapImpl(c: blackbox.Context): c.Expr[Map[String, Any]] = {
 
       findOwningMethod(c)(c.internal.enclosingOwner)
-        .map(owner =>
-          c.Expr(c.parse(s"""Map(${owner.asMethod.paramLists.head
+        .map(owner => {
+          val argsStr = owner.asMethod.paramLists.headOption
+            .getOrElse(Nil)
             .map(s => s""""${s.name}" -> ${s.name}""")
-            .mkString(", ")})"""))
-        )
+            .mkString(", ")
+
+          c.Expr(c.parse(s"""Map($argsStr)"""))
+        })
         .getOrElse(c.abort(c.enclosingPosition, "arguments can be used only inside function."))
 
     }

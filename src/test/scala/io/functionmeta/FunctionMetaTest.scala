@@ -1,6 +1,5 @@
 package io.functionmeta
 
-import org.scalatest._
 import shapeless.test.illTyped
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
@@ -57,18 +56,26 @@ class FunctionMetaTest extends AnyWordSpec with Matchers {
       method("hello", "yesterday")
     }
 
+    "return empty list if function has no arguments" in {
+
+      def noArg(): Unit = {
+        arguments shouldBe Nil
+        ()
+      }
+
+      noArg()
+
+    }
 
     "not compile outside function" in {
 
-      illTyped(
-        """
+      illTyped("""
           case class Test() {
             arguments
           }
         """)
 
-      illTyped(
-        """
+      illTyped("""
           arguments
         """)
     }
@@ -100,17 +107,26 @@ class FunctionMetaTest extends AnyWordSpec with Matchers {
     }
     "not compile outside function" in {
 
-      illTyped(
-        """
+      illTyped("""
           argumentsMap
         """)
 
-      illTyped(
-        """
+      illTyped("""
            case class Test() {
              argumentsMap
           }
         """)
+    }
+
+    "return empty map if function has no arguments" in {
+
+      def noArg(): Unit = {
+        argumentsMap shouldBe Map.empty
+        ()
+      }
+
+      noArg()
+
     }
   }
 
@@ -137,18 +153,17 @@ class FunctionMetaTest extends AnyWordSpec with Matchers {
     }
     "not compile outside function" in {
 
-      illTyped(
-        """
+      illTyped("""
            functionName
         """)
 
-      illTyped(
-        """
+      illTyped("""
            class Test() {
               functionName
            }
         """)
     }
+
   }
 
 }
