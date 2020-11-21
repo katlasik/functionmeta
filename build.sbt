@@ -1,10 +1,7 @@
 val scalaVersions = Seq("2.12.11", "2.13.2")
 
-ThisBuild / version := "0.4.0"
 ThisBuild / organization := "com.github.katlasik"
-ThisBuild / name := "functionmeta"
 ThisBuild / crossScalaVersions := scalaVersions
-ThisBuild / scalaVersion := "2.13.2"
 
 lazy val root = (project in file("."))
   .settings(
