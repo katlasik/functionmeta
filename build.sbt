@@ -1,4 +1,4 @@
-val scalaVersions = Seq("2.12.11", "2.13.2")
+val scalaVersions = Seq("2.12.11", "2.13.5")
 
 ThisBuild / organization := "com.github.katlasik"
 ThisBuild / crossScalaVersions := scalaVersions
@@ -7,7 +7,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "functionmeta",
     homepage := Some(url("https://github.com/katlasik/functionmeta")),
-    scalaVersion := "2.13.2",
+    scalaVersion := "2.13.5",
     crossScalaVersions := scalaVersions,
     sonatypeProfileName := "com.github.katlasik",
     publishMavenStyle := true,
