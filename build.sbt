@@ -17,7 +17,7 @@ lazy val root = (project in file("."))
       ScmInfo(url("https://github.com/katlasik/functionmeta"), "git@github.com:katlasik/functionmeta.git")
     ),
     libraryDependencies ++= Seq(
-      "org.scalameta" %% "scalameta" % "4.4.10",
+      "org.scalameta" %% "scalameta" % "4.4.11",
       "org.scala-lang" % "scala-reflect" % scalaVersion.value,
       "com.chuusai" %% "shapeless" % "2.3.3" % "test",
       "org.scalatest" %% "scalatest" % "3.2.3" % "test"
