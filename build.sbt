@@ -19,7 +19,7 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "org.scalameta" %% "scalameta" % "4.4.10",
       "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-      "com.chuusai" %% "shapeless" % "2.3.3" % "test",
+      "com.chuusai" %% "shapeless" % "2.3.4" % "test",
       "org.scalatest" %% "scalatest" % "3.2.3" % "test"
     ),
     developers := List(
