@@ -20,7 +20,7 @@ lazy val root = (project in file("."))
       "org.scalameta" %% "scalameta" % "4.4.17",
       "org.scala-lang" % "scala-reflect" % scalaVersion.value,
       "com.chuusai" %% "shapeless" % "2.3.3" % "test",
-      "org.scalatest" %% "scalatest" % "3.2.3" % "test"
+      "org.scalatest" %% "scalatest" % "3.2.8" % "test"
     ),
     developers := List(
       Developer(
