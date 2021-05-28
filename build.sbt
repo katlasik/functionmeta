@@ -1,4 +1,4 @@
-val scalaVersions = Seq("2.12.11", "2.13.5")
+val scalaVersions = Seq("2.12.14", "2.13.5")
 
 ThisBuild / organization := "com.github.katlasik"
 ThisBuild / crossScalaVersions := scalaVersions
