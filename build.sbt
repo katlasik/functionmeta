@@ -1,4 +1,4 @@
-val scalaVersions = Seq("2.12.11", "2.13.5")
+val scalaVersions = Seq("2.12.11", "2.13.8")
 
 ThisBuild / organization := "com.github.katlasik"
 ThisBuild / crossScalaVersions := scalaVersions
@@ -7,7 +7,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "functionmeta",
     homepage := Some(url("https://github.com/katlasik/functionmeta")),
-    scalaVersion := "2.13.5",
+    scalaVersion := "2.13.8",
     crossScalaVersions := scalaVersions,
     sonatypeProfileName := "com.github.katlasik",
     publishMavenStyle := true,
@@ -17,16 +17,16 @@ lazy val root = (project in file("."))
       ScmInfo(url("https://github.com/katlasik/functionmeta"), "git@github.com:katlasik/functionmeta.git")
     ),
     libraryDependencies ++= Seq(
-      "org.scalameta" %% "scalameta" % "4.4.17",
+      "org.scalameta" %% "scalameta"     % "4.4.17",
       "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-      "com.chuusai" %% "shapeless" % "2.3.6" % "test",
-      "org.scalatest" %% "scalatest" % "3.2.8" % "test"
+      "com.chuusai"   %% "shapeless"     % "2.3.6" % "test",
+      "org.scalatest" %% "scalatest"     % "3.2.8" % "test"
     ),
     developers := List(
       Developer(
-        id="katlasik",
-        name="Krzysztof Atlasik",
-        email="krzysztof.atlasik@pm.me",
+        id = "katlasik",
+        name = "Krzysztof Atlasik",
+        email = "krzysztof.atlasik@pm.me",
         url("https://github.com/katlasik/functionmeta")
       )
     )
@@ -35,7 +35,7 @@ lazy val root = (project in file("."))
 Compile / scalacOptions ++= {
   CrossVersion.partialVersion(scalaVersion.value) match {
     case Some((2, n)) if n >= 13 => "-Ymacro-annotations" :: Nil
-    case _ => Nil
+    case _                       => Nil
   }
 }
 
